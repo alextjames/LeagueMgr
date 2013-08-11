@@ -1,0 +1,17 @@
+{% import "_forms.html" as forms %}
+{% extends "base.html" %}
+
+{% block page_header %}
+    <div class="page-header">
+        <h1>Create Your New League</h1>
+    </div>
+
+    <form action="/create_league" method="post">
+        {{ forms.render(form) }}
+        <div class="actions">
+            <input type="submit" value="create">
+        </div>
+    </form> 
+{% endblock %}
+
+

@@ -1,0 +1,30 @@
+{% import "_forms.html" as forms %}
+{% extends "base.html" %}
+
+{% block content %}
+
+    <script src="{{ url_for( 'static', filename='templates/leagues/league_manage.js' ) }}"></script>
+
+    {% import "_slug.html" as slug_helper %}
+    {{ slug_helper.set( slug ) }}
+
+    <h1>{{ league.name }}</h1>
+    
+        <table>
+        {% for participant in league.participants %}
+
+            <tr>
+            <td> {{participant.name}} </td>
+            </tr>
+
+        {% endfor %}
+        </table>
+
+        <form action="" id="participant_form" >
+            {{ forms.render(participant_form) }}
+            <div class="actions">
+                <input type="submit" value="create">
+            </div>
+        </form>
+
+{% endblock %}

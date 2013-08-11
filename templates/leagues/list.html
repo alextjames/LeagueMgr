@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for league in leagues %}
+        <h2><a href="{{ url_for('pages.league_home', slug=league.slug) }}">{{ league.name }}</a> ({{ league.participants|length }} participants) </h2>
+    {% endfor %}
+
+    <a href="/create_league">Create a new league</a>
+
+{% endblock %}

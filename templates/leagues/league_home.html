@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{ league.name }}</h1>
+
+    <a href="{{ url_for('pages.league_manage', slug=league.slug) }}">Manage League</a>
+    
+    {% block scoreboard %} 
+
+        <table>
+        {% for participant in league.participants %}
+
+            <tr>
+            <td> {{participant.name}} </td>
+            </tr>
+
+        {% endfor %}
+        </table>
+
+    {% endblock %}
+
+{% endblock %}
